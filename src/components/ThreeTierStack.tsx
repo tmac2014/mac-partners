@@ -77,12 +77,19 @@ export default function ThreeTierStack() {
           {tiers.map((tier, i) => (
             <ScrollReveal key={tier.name} delay={i * 100}>
               <div
-                className={`rounded-2xl border p-8 h-full flex flex-col ${
+                className={`relative rounded-2xl border p-8 h-full flex flex-col transition-all duration-300 ease-out ${
                   tier.highlight
-                    ? "border-primary/40 bg-bg-card shadow-[0_0_40px_rgba(46,196,165,0.08)]"
-                    : "border-border bg-bg-card"
-                } hover:border-border-hover transition-colors`}
+                    ? "border-primary/40 bg-bg-card shadow-[0_0_40px_rgba(46,196,165,0.08)] hover:shadow-[0_0_60px_rgba(46,196,165,0.15)] hover:-translate-y-1"
+                    : "border-border bg-bg-card hover:shadow-[0_0_30px_rgba(46,196,165,0.06)] hover:-translate-y-1"
+                } hover:border-border-hover`}
               >
+                {tier.highlight && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="inline-block bg-primary text-[#0A0F14] text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full shadow-[0_0_20px_rgba(46,196,165,0.3)]">
+                      Your Team
+                    </span>
+                  </div>
+                )}
                 <h3 className="font-[family-name:var(--font-outfit)] text-xl font-bold text-text-heading">
                   {tier.name}
                 </h3>
