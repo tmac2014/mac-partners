@@ -22,9 +22,10 @@ export default function Hero() {
 
         <ScrollReveal delay={200}>
           <p className="mx-auto max-w-2xl text-lg sm:text-xl text-text-muted leading-relaxed mb-10">
-            Work directly with Tyler and Jessica — top producers who built their
-            agency from the ground up. Get the same tools, strategies, and
-            mentorship they use every day. All free.
+            We&apos;re a Medicare-focused health insurance agency — and we teach
+            our agents the exact system we use to grow. Work directly with Tyler
+            and Jessica, get the same tools and strategies, and build a real
+            business. All free.
           </p>
         </ScrollReveal>
 
@@ -46,7 +47,7 @@ export default function Hero() {
             {[
               { value: "$1,000+", label: "Per Client Revenue" },
               { value: "#1", label: "Local Google Ranking" },
-              { value: "$0", label: "Cost to You" },
+              { value: "24/7", label: "AI Caller Included" },
             ].map((stat) => (
               <div
                 key={stat.label}
