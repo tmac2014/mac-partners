@@ -7,29 +7,28 @@ const tiers = [
     description:
       "The tools and mentorship we built our agency on.",
     items: [
-      "Direct access to Tyler & Jessica",
-      "Professional SEO-optimized website",
-      "AI-powered caller system",
-      "MACPartners.io CRM",
-      "Pre-built email & SMS automations",
-      "Cross-selling strategy training",
-      "GBP & SEO domination training",
+      { label: "Direct access to Tyler & Jessica" },
+      { label: "Professional SEO-optimized website" },
+      { label: "AI-powered caller system" },
+      { label: "MACPartners.io CRM" },
+      { label: "Pre-built email & SMS automations" },
+      { label: "Cross-selling strategy training" },
+      { label: "GBP & SEO domination training" },
     ],
     highlight: true,
   },
   {
-    name: "Christian Brindle's Team",
+    name: "Christian Brindle | Everything Senior Insurance",
     tagline: "Upline Support",
     description:
       "Top-level training, resources, and heavy discounts from our upline.",
     items: [
-      "Free access to Seven Figure University",
-      "Free access to Seven Figure CRM",
-      "Heavy discounts on Lead Heroes leads & marketing",
-      "Discounted VAs through Hire Heroes",
-      "Weekly training from a multi-seven-figure agency builder",
-      "Dedicated support, mentorship & transparency",
-      "Premier agent program",
+      { label: "Premier agent program" },
+      { label: "Free access to Seven Figure University", href: "https://sevenfigureu.com/" },
+      { label: "Discounts on Lead Heroes leads", href: "https://leadheroes.com/" },
+      { label: "Discounted VAs through Hire Heroes", href: "https://hireheroes.com/" },
+      { label: "Weekly training from a multi-seven-figure agency builder" },
+      { label: "Exclusive top producer trips" },
     ],
     highlight: false,
   },
@@ -39,15 +38,15 @@ const tiers = [
     description:
       "Industry-leading tech, carriers, and resources.",
     items: [
-      "IntegrityCONNECT platform",
-      "MedicareCENTER",
-      "Sunfire enrollment",
-      "Connecture plan comparison",
-      "CSG Medigap quoting",
-      "Integrity Leads",
-      "Top-level commissions",
-      "E&O discounts up to 50%",
-      "Exclusive carrier access & bonuses",
+      { label: "IntegrityCONNECT platform" },
+      { label: "MedicareCENTER" },
+      { label: "Sunfire enrollment" },
+      { label: "Connecture plan comparison" },
+      { label: "CSG Medigap quoting" },
+      { label: "Integrity Leads" },
+      { label: "Top-level commissions" },
+      { label: "E&O discounts up to 50%" },
+      { label: "Exclusive carrier access & bonuses" },
     ],
     highlight: false,
   },
@@ -93,7 +92,7 @@ export default function ThreeTierStack() {
                 </p>
                 <ul className="space-y-3 mt-auto">
                   {tier.items.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
+                    <li key={item.label} className="flex items-start gap-3">
                       <svg
                         className="w-4 h-4 text-primary flex-shrink-0 mt-0.5"
                         fill="none"
@@ -107,7 +106,18 @@ export default function ThreeTierStack() {
                           d="M5 13l4 4L19 7"
                         />
                       </svg>
-                      <span className="text-sm text-text-muted">{item}</span>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-primary hover:underline"
+                        >
+                          {item.label}
+                        </a>
+                      ) : (
+                        <span className="text-sm text-text-muted">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
